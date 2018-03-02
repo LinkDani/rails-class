@@ -1,3 +1,6 @@
 <h1>Welcome to my first rails app!</h1>
 <p>Find me in app/views/home/index.html.erb</p>
-<%= link_to 'Cadastro de produtos', products_path %>
+
+Último produto cadastrado: <br />
+<%= @product.name %><br />
+<%= @product.price %>
