@@ -1,6 +1,16 @@
 <h1>Welcome to my first rails app!</h1>
 <p>Find me in app/views/home/index.html.erb</p>
 
-Último produto cadastrado: <br />
+<h1>Último produto cadastrado:</h1>
 <%= @product.name %><br />
-<%= @product.price %>
+<%= @product.price %><br />
+
+<h2>
+  Soma dos produtos
+</h2>>
+<%= Product.all.map(&:price).sum %> <!-- OU:  Product.all.map(|p| p.price).sum --> 
+
+<h2>
+  Nome dos produtos
+</h2>
+<%= Product.all.map(&:name) %> <!-- OU:  Product.all.map(|n| n.name) --> 
