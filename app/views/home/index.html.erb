@@ -1,6 +1,7 @@
 <h1>Welcome to my first rails app!</h1>
 <p>Find me in app/views/home/index.html.erb</p>
 
+<% if @product %>
 <h1>Último produto cadastrado:</h1>
 <%= @product.name %><br />
 <%= @product.price %><br />
@@ -13,4 +14,10 @@
 <h2>
   Nome dos produtos
 </h2>
-<%= Product.all.map(&:name) %> <!-- OU:  Product.all.map(|n| n.name) --> 
+<%= raw (Product.all.map{|n|  link_to n.name, edit_product_path(n)}.join(" | ") ) %> <!-- OU:  Product.all.map(|n| n.name) -->
+<% end %>
+
+<h1>COMPRA</h1>
+<h2><i>PRODUTO:</i> <%= @produto_encontrado && @produto_encontrado.name || 'Produto não encontrado' %></h2>
+<h2><i>TOTAL A PAGAR:</i> <%= @valor_total %></h2>
+
